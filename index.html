@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple One Page</title>
+    <style>
+        /* Full-screen video background */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Centered logo and text */
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            z-index: 1;
+        }
+
+        /* Styling the logo */
+        .logo {
+            width: 150px; /* Adjust size as needed */
+            margin-bottom: 20px;
+        }
+
+        /* Styling the link */
+        .link {
+            color: #fff;
+            text-decoration: underline;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video autoplay muted loop class="video-bg">
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Logo and Link -->
+    <div class="content">
+        <img src="logo.png" alt="Logo" class="logo">
+        <a href="https://www.example.com" class="link">Visit our partner site</a>
+    </div>
+</body>
+</html>
