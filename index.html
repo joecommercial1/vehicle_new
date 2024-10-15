@@ -38,12 +38,18 @@
             z-index: -1;
         }
 
-        /* Logo Styling */
+        /* Centered Logo Styling */
         .logo {
             position: absolute;
             top: 20px;
-            left: 20px;
-            width: 100px; /* Adjust size as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px; /* Adjusted size */
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .logo:hover {
+            transform: translateX(-50%) rotate(360deg);
         }
 
         /* CTA Button */
@@ -92,9 +98,8 @@
         /* Responsiveness */
         @media (max-width: 768px) {
             .logo {
-                width: 70px;
+                width: 140px; /* Adjusted for smaller screens */
                 top: 10px;
-                left: 10px;
             }
             .cta {
                 top: 20px;
@@ -111,7 +116,7 @@
     <div class="carousel">
         <!-- Video Backgrounds -->
         <video class="video-bg" autoplay muted loop id="video1">
-            <source src="Magazine_spin_neworder_Big.mp4" type="video/mp4">
+            <source src="video1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video class="video-bg" autoplay muted loop id="video2" style="display: none;">
@@ -123,7 +128,7 @@
             Your browser does not support the video tag.
         </video>
 
-        <!-- Logo -->
+        <!-- Centered Logo -->
         <img src="logo.png" alt="Logo" class="logo">
 
         <!-- CTA Link -->
