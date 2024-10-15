@@ -41,26 +41,28 @@
         /* Centered Logo Styling */
         .logo {
             position: absolute;
-            top: 20px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            width: 200px; /* Adjusted size */
-            transition: transform 0.6s ease-in-out;
-            transform-style: preserve-3d; /* Ensure 3D transformation works */
+            transform: translate(-50%, -50%);
+            width: 300px; /* Larger size */
+            transition: mix-blend-mode 0.3s ease-in-out;
         }
 
         .logo:hover {
-            transform: translateX(-50%) rotateY(360deg); /* Rotate on Y-axis */
+            mix-blend-mode: difference;
         }
 
         /* CTA Button */
         .cta {
             position: absolute;
             top: 30px;
-            left: 150px;
-            color: #fff;
+            left: 0; /* Align to the left edge */
+            color: rgb(255, 0, 0); /* RGB red */
             text-decoration: none;
             font-size: 18px;
+            background: none;
+            border: none;
+            padding: 10px 15px;
             opacity: 0.8;
             transition: opacity 0.3s;
         }
@@ -96,19 +98,34 @@
             right: 20px;
         }
 
+        /* Instagram Icon */
+        .instagram-icon {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 30px;
+            transition: opacity 0.3s;
+            opacity: 0.8;
+        }
+
+        .instagram-icon:hover {
+            opacity: 1;
+        }
+
         /* Responsiveness */
         @media (max-width: 768px) {
             .logo {
-                width: 140px; /* Adjusted for smaller screens */
-                top: 10px;
+                width: 200px; /* Adjusted for smaller screens */
             }
             .cta {
                 top: 20px;
-                left: 100px;
                 font-size: 16px; /* Slightly smaller font for mobile */
             }
             .arrow {
                 font-size: 1.5rem;
+            }
+            .instagram-icon {
+                width: 25px; /* Smaller size for mobile */
             }
         }
     </style>
@@ -138,6 +155,11 @@
         <!-- Navigation Arrows -->
         <div class="arrow arrow-left" onclick="prevVideo()">&#10094;</div>
         <div class="arrow arrow-right" onclick="nextVideo()">&#10095;</div>
+
+        <!-- Instagram Icon -->
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="instagram.png" alt="Instagram" class="instagram-icon">
+        </a>
     </div>
 
     <script>
