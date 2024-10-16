@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Carousel Website</title>
+    <title>Simple Red Logo Website</title>
     <style>
-        /* Import Inter Font */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
-
         /* Basic Reset */
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Helvetica', sans-serif;
             font-size: 18px;
-            overflow: hidden; /* Prevent scrolling */
+            text-align: center;
+            background: #fff;
         }
 
-        /* Fullscreen Container */
-        .carousel {
+        /* Container for Content */
+        .container {
             position: relative;
             width: 100%;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            color: #ff0000; /* RGB red */
         }
 
-        /* Video Styling */
+        /* Video Background */
         .video-bg {
             position: absolute;
             top: 0;
@@ -38,150 +38,67 @@
             z-index: -1;
         }
 
-        /* Centered Logo Styling */
+        /* Logo Styling */
         .logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px; /* Larger size */
-            transition: mix-blend-mode 0.3s ease-in-out;
+            width: 80%; /* Logo size adjusts based on screen size */
+            max-width: 600px; /* Maximum width for larger screens */
+            margin: 20px 0; /* Space around the logo */
         }
 
-        .logo:hover {
-            mix-blend-mode: difference;
-        }
-
-        /* CTA Button */
-        .cta {
-            position: absolute;
-            top: 30px;
-            left: 0; /* Align to the left edge */
-            color: rgb(255, 0, 0); /* RGB red */
+        /* CTA and Links */
+        .cta, .contact, .instagram {
+            margin: 10px 0;
             text-decoration: none;
+            color: #ff0000;
             font-size: 18px;
-            background: none;
-            border: none;
-            padding: 10px 15px;
-            opacity: 0.8;
             transition: opacity 0.3s;
         }
 
-        .cta:hover {
-            opacity: 1;
-        }
-
-        /* Navigation Arrows */
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            color: #fff;
-            cursor: pointer;
-            opacity: 0.5;
-            transition: opacity 0.3s;
-            border: none;
-            background: none;
-            font-weight: 100; /* Makes the arrow thinner */
-        }
-
-        .arrow:hover {
-            opacity: 0.8;
-        }
-
-        .arrow-left {
-            left: 20px;
-        }
-
-        .arrow-right {
-            right: 20px;
+        .cta:hover, .contact:hover, .instagram:hover {
+            opacity: 0.7;
         }
 
         /* Instagram Icon */
         .instagram-icon {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
             width: 30px;
-            transition: opacity 0.3s;
-            opacity: 0.8;
-        }
-
-        .instagram-icon:hover {
-            opacity: 1;
+            margin-top: 10px;
         }
 
         /* Responsiveness */
         @media (max-width: 768px) {
             .logo {
-                width: 200px; /* Adjusted for smaller screens */
+                width: 90%; /* Slightly smaller for mobile */
             }
-            .cta {
-                top: 20px;
-                font-size: 16px; /* Slightly smaller font for mobile */
-            }
-            .arrow {
-                font-size: 1.5rem;
+            .cta, .contact, .instagram {
+                font-size: 16px; /* Adjusted font size */
             }
             .instagram-icon {
-                width: 25px; /* Smaller size for mobile */
+                width: 25px; /* Smaller icon for mobile */
             }
         }
     </style>
 </head>
 <body>
-    <div class="carousel">
-        <!-- Video Backgrounds -->
-        <video class="video-bg" autoplay muted loop id="video1">
-            <source src="video1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <video class="video-bg" autoplay muted loop id="video2" style="display: none;">
-            <source src="video2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <video class="video-bg" autoplay muted loop id="video3" style="display: none;">
-            <source src="video3.mp4" type="video/mp4">
+    <div class="container">
+        <!-- Video Background -->
+        <video class="video-bg" autoplay muted loop>
+            <source src="background-video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
-        <!-- Centered Logo -->
-        <img src="logo.png" alt="Logo" class="logo">
+        <!-- CTA Above the Logo -->
+        <a href="https://www.example.com" class="cta">Buy Issue One</a>
 
-        <!-- CTA Link -->
-        <a href="https://www.example.com" class="cta">Buy Issue 1</a>
+        <!-- Logo SVG -->
+        <img src="logo.svg" alt="Logo" class="logo">
 
-        <!-- Navigation Arrows -->
-        <div class="arrow arrow-left" onclick="prevVideo()">&#10094;</div>
-        <div class="arrow arrow-right" onclick="nextVideo()">&#10095;</div>
+        <!-- Contact Us Link -->
+        <a href="mailto:youremail@example.com" class="contact">Contact Us</a>
 
-        <!-- Instagram Icon -->
-        <a href="https://www.instagram.com" target="_blank">
+        <!-- Instagram Link -->
+        <a href="https://www.instagram.com/yourinstagram" target="_blank">
             <img src="instagram.png" alt="Instagram" class="instagram-icon">
         </a>
     </div>
-
-    <script>
-        // JavaScript for Video Carousel
-        const videos = document.querySelectorAll('.video-bg');
-        let currentVideo = 0;
-
-        function showVideo(index) {
-            videos.forEach((video, i) => {
-                video.style.display = i === index ? 'block' : 'none';
-            });
-        }
-
-        function nextVideo() {
-            currentVideo = (currentVideo + 1) % videos.length;
-            showVideo(currentVideo);
-        }
-
-        function prevVideo() {
-            currentVideo = (currentVideo - 1 + videos.length) % videos.length;
-            showVideo(currentVideo);
-        }
-    </script>
 </body>
 </html>
